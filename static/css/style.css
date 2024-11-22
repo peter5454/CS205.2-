@@ -1,0 +1,503 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins Medium", serif;
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+/* resize overlay */
+
+.overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+}
+
+.overlay-content {
+    text-align: center;
+    color: black;
+}
+
+.overlay-content p {
+    font-weight: bold;
+}
+
+.resize-icon {
+    margin-top: 1rem;
+    height: 15rem;
+    width: auto;
+}
+
+/* navbar */
+
+nav {
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+}
+
+.navbar-container {
+    width: 98%;
+    margin: 0 2%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-container .logo{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo-link {
+    text-decoration: none;
+    display: block;
+}
+
+.logo img{
+    display: block;
+    height: 4rem;
+    filter: brightness(0) saturate(100%) invert(1) sepia(1) saturate(500%) hue-rotate(200deg);
+}
+
+.logo h1{
+    color: white;
+    margin: 0 0.5rem;
+    font-size: 2.8rem;
+}
+
+.menu {
+    margin: 0 1rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu i {
+    font-size: 5rem;
+    color: white;
+}
+
+@media (width < 550px)
+{
+    .logo h1{
+        font-size: 2rem;
+    }
+
+    .logo img{
+        height: 3rem;
+    }
+
+    .menu i{
+        font-size: 4rem;
+    }
+}
+
+/* Side Menu */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    width: 80%;
+    background-color: rgba(100, 100, 100, 0.7);
+    color: white;
+    z-index: 5;
+    transition: right 0.3s ease;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 50px 0 0;
+}
+
+.side-menu ul li {
+    margin: 20px 0;
+}
+
+.side-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.side-menu ul li a:hover {
+    text-decoration: underline;
+}
+
+.side-menu i {
+    align-self: flex-end;
+    font-size: 5rem;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 20px;
+}
+
+@media (width < 550px)
+{
+    .side-menu i {
+        font-size: 4rem;
+    }
+}
+
+/* Home Page */
+
+.home-banner{
+    width: 100%;
+    height: auto;
+}
+
+.home-banner-container{
+    width: 100%;
+    min-height: 55vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/static/images/home_banner.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+
+}
+
+.home-banner h1{
+    font-size: clamp(2rem, 1rem + 6vw, 5rem);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.home-banner p{
+
+    font-size: clamp(1.1rem, 0.5rem + 3vw, 2.2rem);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.home-content{
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    box-shadow: 0 0 25px 50px black;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+
+}
+
+.heading {
+    text-align: center;
+    color: white;
+    line-height: 8rem;
+    font-size: clamp(1.5rem, 0.7rem + 3vw, 2rem);
+}
+
+.sub-heading {
+    width: 60%;
+    text-align: center;
+    color: white;
+    font-size: clamp(0.8rem, 0.5rem + 2vw, 1.5rem);
+}
+
+.button-container {
+    width: 100%;
+    min-height: fit-content;
+    margin-top: 8rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.button-container a {
+    text-decoration: none;
+    padding: 3rem 6rem;
+    border: 5px white solid;
+    border-radius: 8rem;
+    background: white;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 4rem;
+    letter-spacing: 1rem;
+    box-shadow: 0 0 12px rgba(155, 155, 155, 1);
+    text-shadow: 0 0 8px rgba(155, 155, 155, 1);
+}
+
+/* Workout determine */
+.workout-determine {
+    min-height: 100vh;
+}
+
+.workout-heading {
+    display: inline;
+    text-align: center;
+}
+
+.workout-determine h1{
+    color: black;
+    font-size: 5rem;
+    margin: 0;
+}
+
+.workout-determine h2{
+    color: black;
+    font-size: 3rem;
+    font-weight: normal;
+    margin: 0;
+    transition: color 0.5s ease;
+}
+
+.flash-once {
+  animation: flash-red 0.2s;
+}
+
+@keyframes flash-red {
+    0%, 100% {
+        color: black;
+        transform: translateY(-5px);
+
+    }
+    50% {
+        color: red;
+        transform: translateY(5px);
+    }
+}
+
+.custom-number-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.hop {
+    animation: hopAnimation 0.2s ease forwards;
+}
+
+@keyframes hopAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.age-gender {
+    width: 100%;
+    min-height: fit-content;
+    margin-top: 4rem;
+
+}
+
+.custom-number-input input {
+
+    width: 12rem;
+    height: 12rem;
+    font-size: 5rem;
+    outline: none;
+    text-align: center;
+    background: none;
+    color: black;
+    border: 0.5rem solid black;
+    border-radius: 15px;
+    font-family: "Poppins Medium", serif;
+    box-sizing: border-box;
+    margin-left: 5rem;
+}
+
+.arrows {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+
+
+}
+
+.arrows i {
+    font-size: 5rem;
+    color: black;
+    transition: transform 0.2s ease;
+
+}
+
+.arrows i:active {
+    transform: scale(1.2);
+}
+
+.custom-input {
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: auto;
+    gap: 2rem;
+}
+
+.gender-button {
+    width: 12rem;
+    height: 12rem;
+    font-size: 5rem;
+    color: black;
+    border: 0.5rem solid black;
+    border-radius: 15px;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.gender-button:hover {
+    background-color: black;
+    color: white;
+    scale: 1.1;
+}
+
+.gender-button.active {
+    background-color: black;
+    color: white;
+    scale: 1.1;
+}
+
+.submit-age-gender {
+
+}
+
+.submit-age-gender-button {
+    width: 12rem;
+    height: 12rem;
+    font-size: 5rem;
+
+    color: white;
+    border: 0.5rem solid black;
+    border-radius: 15px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 1);
+    text-shadow: 0 0 8px rgba(155, 155, 155, 1);
+
+}
+
+.age-gender p {
+    font-size: 5rem;
+    margin: 0;
+}
+
+/* Custom Dropdown Container */
+.custom-dropdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+/* Dropdown Button */
+.dropdown-button {
+    width: 30rem;
+    height: 10rem;
+    font-size: 2rem;
+    color: black;
+    border: 0.4rem solid black;
+    font-family: "Poppins Medium", serif;
+    border-radius: 15px;
+    background: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 1rem;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    position: relative;
+}
+
+.dropdown-button i {
+    font-size: 5rem;
+}
+
+/* Hover Effects for Dropdown Button */
+.dropdown-button:hover {
+    background-color: black;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 3.5rem;
+    width: 12rem;
+    background-color: white;
+    border: 0.2rem solid black;
+    border-radius: 15px;
+    overflow: hidden;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu.show {
+    display: flex;
+}
+
+/* Dropdown Items */
+.dropdown-item {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: black;
+    color: white;
+}
+.workout-heading p {
+    font-size: 2rem;
+    padding: 0 10%;
+}
+
+
+
+
+
